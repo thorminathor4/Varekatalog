@@ -17,4 +17,8 @@ public class ProductService {
 
     public void create(Product p){ repo.create(p); }
 
+    public Product read(int id){ return repo.read(id); }
+
+    public void update(Product p){ repo.update(p); }
+
 }

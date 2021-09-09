@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Varekatalog - Rediger Produkt</title>
+</head>
+<body>
+  <form action="/updateProduct" method="post">
+      <table>
+          <tbody>
+            <tr>
+                <td>ID:</td>
+                <td><input type="number" name="id" th:value="${product.id}" readonly></td>
+            </tr>
+            <tr>
+                <td>Navn:</td>
+                <td><input type="text" name="name" th:value="${product.name}" required/></td>
+            </tr>
+            <tr>
+                <td>Pris:</td>
+                <td><input type="number" name="price" th:value="${product.price}" required/></td>
+            </tr>
+            <div>
+                <input type="submit" value="Gem Ændringer">
+            </div>
+          </tbody>
+      </table>
+  </form>
+</body>
+</html>

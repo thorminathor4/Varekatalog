@@ -26,4 +26,15 @@ public class ProductRepo {
         database.update(sql,p.getName(),p.getPrice());
     }
 
+    public Product read(int id){
+        String sql="SELECT * FROM products WHERE id = ?";
+        RowMapper<Product> rowMapper=new BeanPropertyRowMapper<>(Product.class);
+        return database.queryForObject(sql,rowMapper,id);
+    }
+
+    public void update(Product p){
+        String sql="UPDATE products SET name=?, price=? WHERE id = ?";
+        database.update(sql,p.getName(),p.getPrice(),p.getId());
+    }
+
 }

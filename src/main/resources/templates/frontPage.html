@@ -24,11 +24,17 @@
         <thead>
             <th>Navn</th>
             <th>Pris</th>
+            <th>Rediger</th>
         </thead>
         <tbody>
         <tr th:each="product: ${products}">
             <td th:text="${product.name}"/>
             <td th:text="${product.price}+' kr'"/>
+            <td>
+                <a th:href="@{'/updateProduct/'+${product.id}}">
+                    <button>Rediger</button>
+                </a>
+            </td>
         </tr>
         </tbody>
     </table>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Varekatalog</title>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 5px 10px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <a href="/createProduct">
+            <button> Tilføj Vare </button>
+        </a>
+    </div>
+    <br>
+    <table>
+        <thead>
+            <th>Navn</th>
+            <th>Pris</th>
+        </thead>
+        <tbody>
+        <tr th:each="product: ${products}">
+            <td th:text="${product.name}"/>
+            <td th:text="${product.price}+' kr'"/>
+        </tr>
+        </tbody>
+    </table>
+</body>
+</html>

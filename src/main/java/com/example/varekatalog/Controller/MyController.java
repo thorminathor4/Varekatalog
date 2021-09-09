@@ -51,4 +51,9 @@ public class MyController {
         return "redirect:/frontPage";
     }
 
+    @GetMapping("/deleteProduct/{id}")
+    public String deleteProduct(@PathVariable("id") int id){
+        productService.delete(id);
+        return "redirect:/frontPage";
+    }
 }

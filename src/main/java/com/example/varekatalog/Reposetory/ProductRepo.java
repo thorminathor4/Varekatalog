@@ -37,4 +37,9 @@ public class ProductRepo {
         database.update(sql,p.getName(),p.getPrice(),p.getId());
     }
 
+    public void delete(int id){
+        String sql="DELETE FROM products WHERE id = ?";
+        database.update(sql,id);
+    }
+
 }

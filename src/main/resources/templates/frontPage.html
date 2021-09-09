@@ -25,6 +25,7 @@
             <th>Navn</th>
             <th>Pris</th>
             <th>Rediger</th>
+            <th>Slet</th>
         </thead>
         <tbody>
         <tr th:each="product: ${products}">
@@ -33,6 +34,11 @@
             <td>
                 <a th:href="@{'/updateProduct/'+${product.id}}">
                     <button>Rediger</button>
+                </a>
+            </td>
+            <td>
+                <a th:href="@{'/deleteProduct/'+${product.id}}">
+                    <button>Slet</button>
                 </a>
             </td>
         </tr>

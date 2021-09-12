@@ -1,7 +1,7 @@
 package com.example.varekatalog.Controller;
 
 import com.example.varekatalog.Model.Product;
-import com.example.varekatalog.Service.ProductService;
+import com.example.varekatalog.Reposetory.ProductRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,20 +11,20 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
-public class MyController {
+public class MainController {
 
     @Autowired
-    ProductService productService;
+    ProductRepo productRepo;
 
     @GetMapping("/")
     public String index(Model uiModel){
-        uiModel.addAttribute("products",productService.loadAll());
+        uiModel.addAttribute("products",productRepo.loadAll());
         return "/frontPage";
     }
 
     @GetMapping("/frontPage")
     public String frontPage(Model uiModel){
-        uiModel.addAttribute("products",productService.loadAll());
+        uiModel.addAttribute("products",productRepo.loadAll());
         return "/frontPage";
     }
 
@@ -35,25 +35,25 @@ public class MyController {
 
     @PostMapping("/createProduct")
     public String createProduct(@ModelAttribute Product p){
-        productService.create(p);
+        productRepo.create(p);
         return "redirect:/frontPage";
     }
 
     @GetMapping("/updateProduct/{id}")
     public String updateProduct(@PathVariable("id") int id, Model uiModel){
-        uiModel.addAttribute("product",productService.read(id));
+        uiModel.addAttribute("product",productRepo.read(id));
         return "/updateProduct";
     }
 
     @PostMapping("/updateProduct")
     public String updateProduct(@ModelAttribute Product p){
-        productService.update(p);
+        productRepo.update(p);
         return "redirect:/frontPage";
     }
 
     @GetMapping("/deleteProduct/{id}")
     public String deleteProduct(@PathVariable("id") int id){
-        productService.delete(id);
+        productRepo.delete(id);
         return "redirect:/frontPage";
     }
 }

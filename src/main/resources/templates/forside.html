@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta charset="UTF-8">
+        <title>Varekatalog</title>
+        <link rel="stylesheet" href="Stylesheet.css">
+    </head>
+    <body>
+        <div align="center">
+            <h1>Varekatalog</h1>
+            <br>
+            <a href="/tilføjVare">
+                <button style="background: #30C030"> Tilføj Vare </button>
+            </a>
+        </div>
+        <br>
+        <table align="center" width="50%">
+            <thead>
+                <th>Vare</th>
+                <th width="15%" style="text-align: center">Pris</th>
+                <th/>
+                <th/>
+            </thead>
+            <tbody>
+                <tr th:each="product: ${products}">
+                    <td th:text="${product.name}"/>
+                    <td th:text="${product.price}+' kr'" style="text-align: right"/>
+                    <td width="10%">
+                        <a th:href="@{'/redigerVare/'+${product.id}}">
+                            <button style="background: #F0B000">Rediger</button>
+                        </a>
+                    </td>
+                    <td width="10%">
+                        <a th:href="@{'/sletVare/'+${product.id}}">
+                            <button style="background: #FF6040">Slet</button>
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <br>
+        <div align="center">
+            <a href="/tilføjVare">
+                <button style="background: #30C030"> Tilføj Vare </button>
+            </a>
+        </div>
+    </body>
+</html>

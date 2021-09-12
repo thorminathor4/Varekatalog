@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Varekatalog - Tilføj Vare</title>
+    <link rel="stylesheet" href="Stylesheet.css">
+</head>
+<body>
+    <div align="center">
+        <h1>Tilføj Vare</h1>
+        <br>
+        <a href="/">
+            <button style="background: #F0B000"> Tilbage </button>
+        </a>
+    </div>
+    <br>
+    <form action="/tilføjVare" method="post" width="100%" align="center">
+        <table align="center">
+            <thead>
+                <th colspan="2" style="text-align: center">Ny Vare</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td align="left">Vare:</td>
+                    <td align="left"><input type="text" name="name" required/></td>
+                </tr>
+                <tr>
+                    <td align="left">Pris:</td>
+                    <td align="left"><input type="number" name="price" required/></td>
+                </tr>
+            </tbody>
+        </table>
+        <br>
+        <div>
+            <button type="submit" style="background: #30C030"> Tilføj </button>
+        </div>
+    </form>
+</body>
+</html>

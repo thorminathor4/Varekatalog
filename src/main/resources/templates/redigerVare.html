@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Varekatalog - Rediger Vare</title>
+    <link rel="stylesheet" href="/Stylesheet.css" type="text/css">
+</head>
+<body>
+    <div align="center">
+        <h1>Rediger Vare</h1>
+        <br>
+        <a href="/">
+            <button style="background: #F0B000"> Tilbage </button>
+        </a>
+    </div>
+    <br>
+    <form action="/redigerVare" method="post" width="100%" align="center">
+        <table align="center">
+            <thead>
+            <th colspan="2" style="text-align: center">Vare</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>ID:</td>
+                    <td><input type="number" name="id" th:value="${product.id}" readonly></td>
+                </tr>
+                <tr>
+                    <td>Vare:</td>
+                    <td><input type="text" name="name" th:value="${product.name}" required/></td>
+                </tr>
+                <tr>
+                    <td>Pris:</td>
+                    <td><input type="number" name="price" th:value="${product.price}" required/></td>
+                </tr>
+            </tbody>
+        </table>
+        <br>
+        <div>
+            <input type="submit" value="Gem Ændringer" class="submitButton">
+        </div>
+    </form>
+</body>
+</html>

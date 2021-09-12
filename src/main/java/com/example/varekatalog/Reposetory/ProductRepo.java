@@ -15,31 +15,31 @@ public class ProductRepo {
     @Autowired
     JdbcTemplate database;
 
-    public List<Product> loadAll(){
+    public List<Product> readAll(){
         String sql="SELECT * FROM products";
         RowMapper<Product> rowMapper=new BeanPropertyRowMapper<>(Product.class);
-        return database.query(sql,rowMapper);
+        return database.query(sql, rowMapper);
     }
 
     public void create(Product p){
         String sql="INSERT INTO products (name,price) VALUES (?,?)";
-        database.update(sql,p.getName(),p.getPrice());
+        database.update(sql, p.getName(), p.getPrice());
     }
 
     public Product read(int id){
         String sql="SELECT * FROM products WHERE id = ?";
         RowMapper<Product> rowMapper=new BeanPropertyRowMapper<>(Product.class);
-        return database.queryForObject(sql,rowMapper,id);
+        return database.queryForObject(sql, rowMapper, id);
     }
 
     public void update(Product p){
         String sql="UPDATE products SET name=?, price=? WHERE id = ?";
-        database.update(sql,p.getName(),p.getPrice(),p.getId());
+        database.update(sql, p.getName(), p.getPrice(), p.getId());
     }
 
     public void delete(int id){
         String sql="DELETE FROM products WHERE id = ?";
-        database.update(sql,id);
+        database.update(sql, id);
     }
 
 }

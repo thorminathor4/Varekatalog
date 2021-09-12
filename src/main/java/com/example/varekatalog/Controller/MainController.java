@@ -18,42 +18,42 @@ public class MainController {
 
     @GetMapping("/")
     public String index(Model uiModel){
-        uiModel.addAttribute("products",productRepo.loadAll());
-        return "/frontPage";
+        uiModel.addAttribute("products",productRepo.readAll());
+        return "forside";
     }
 
-    @GetMapping("/frontPage")
+    @GetMapping("/forside")
     public String frontPage(Model uiModel){
-        uiModel.addAttribute("products",productRepo.loadAll());
-        return "/frontPage";
+        uiModel.addAttribute("products",productRepo.readAll());
+        return "forside";
     }
 
-    @GetMapping("/createProduct")
+    @GetMapping("/tilføjVare")
     public String createProduct(){
-        return "/createProduct";
+        return "tilføjVare";
     }
 
-    @PostMapping("/createProduct")
+    @PostMapping("/tilføjVare")
     public String createProduct(@ModelAttribute Product p){
         productRepo.create(p);
-        return "redirect:/frontPage";
+        return "redirect:/forside";
     }
 
-    @GetMapping("/updateProduct/{id}")
+    @GetMapping("/redigerVare/{id}")
     public String updateProduct(@PathVariable("id") int id, Model uiModel){
         uiModel.addAttribute("product",productRepo.read(id));
-        return "/updateProduct";
+        return "redigerVare";
     }
 
-    @PostMapping("/updateProduct")
+    @PostMapping("/redigerVare")
     public String updateProduct(@ModelAttribute Product p){
         productRepo.update(p);
-        return "redirect:/frontPage";
+        return "redirect:/forside";
     }
 
-    @GetMapping("/deleteProduct/{id}")
+    @GetMapping("/sletVare/{id}")
     public String deleteProduct(@PathVariable("id") int id){
         productRepo.delete(id);
-        return "redirect:/frontPage";
+        return "redirect:/forside";
     }
 }

@@ -1,0 +1,47 @@
+body{
+    background-image: url("Supermarket.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+h1, th, td, button {
+    font-family: Helvetica;
+}
+table{
+    border-radius: 30px;
+}
+table, th, td {
+    border: 0px;
+    border-collapse: collapse;
+}
+th{
+    background: #70E0E0;
+    padding: 10px 20px;
+    text-align: left;
+}
+tr:nth-of-type(even){
+    background: #E0E0E0;
+}
+tr:nth-of-type(odd){
+    background: white;
+}
+td{
+    padding: 5px 20px;
+}
+button{
+    font-weight: bold;
+    color: white;
+    padding: 10px 20px;
+    border: 0px;
+    border-radius: 30px;
+}
+input{
+    padding: 5px;
+}
+.submitButton{
+    font-weight: bold;
+    color: white;
+    padding: 10px 20px;
+    border: 0px;
+    border-radius: 30px;
+    background: #30C030;
+}
